@@ -6,10 +6,22 @@ import './Customer.css';
 import CustomerDetails from './CustomerDetails';
 
 class Customer extends Component {
-  render() {
 
+  static propTypes = {
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    credit: PropTypes.number.isRequired,
+  }
+  
+  render() {
     return (
       <section>
+       <CustomerDetails
+         name={this.props.name}
+         phone={this.props.phone}
+         credit={this.props.account_credit}
+        />
       </section>
     )
   }
