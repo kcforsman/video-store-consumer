@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 import './Customer.css';
 import CustomerDetails from './CustomerDetails';
@@ -11,9 +10,9 @@ class Customer extends Component {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
-    credit: PropTypes.number.isRequired,
+    credit: PropTypes.number,
   }
-  
+
   render() {
     return (
       <section>
