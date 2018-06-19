@@ -5,6 +5,7 @@ import Navigation from './components/Navigation';
 import CustomerList from './components/CustomerList';
 import RentalLibrary from './components/RentalLibrary';
 import MovieSearch from './components/MovieSearch';
+import Checkout from './components/Checkout';
 
 
 class App extends Component {
@@ -13,7 +14,9 @@ class App extends Component {
     super();
 
     this.state = {
-      index: 1
+      index: 1,
+      movie: null,
+      customer: null
     }
   }
 
@@ -39,6 +42,10 @@ class App extends Component {
     return (
       <main>
         <header>
+          <Checkout
+            movie={ this.state.movie ? this.state.movie.title : ""}
+            customer={ this.state.customer ? this.state.customer.name : ""}
+          />
           <h1>NorthWest Movies</h1>
           <Navigation setComponent={ this.setComponent }/>
         </header>
