@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import axios from 'axios';
 
 import './RentalLibrary.css';
 import Movie from './Movie';
 
 class RentalLibrary extends Component {
-
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       movies: [],
@@ -17,54 +15,49 @@ class RentalLibrary extends Component {
   }
 
   componentDidMount = () => {
-    console.log('Component did mount was called');
+    axios.get("http://localhost:3000/movies")
+    .then((response) => {
+      const movies = this.state.movies;
+      response.data.forEach((movie) => {
+        const newMovie = {};
+        newMovie.id = movie.id;
+        newMovie.title = movie.title;
+        newMovie.image_url = movie.image_url;
+        movies.push(newMovie);
+      })
 
-    axios.get('')
-    .then( (response) => {
-      console.log( response.data );
-      this.setState({
-        movies: response.data
-      });
-    } )
-    .catch( (error) => {
-      console.log("got to the error");
-      console.log(error);
-      this.setState({
-        error: error.message
-      });
-    } );
+      this.setState({ movies })
+    })
+    .catch((error) => {
+      this.setState({ message: error.message})
+    });
   }
 
-  renderMovieList = () => {
-    console.log('Rendering Movie List');
-    const componentList = this.state.movie.map((movie, index) => {
-      return (
-        <Movie
-        key={index}
-        title={movie.title}
-        release_date={movie.release_date}
-        inventory={movie.inventory}
-        external_id={movie.external_id}
-        />
-      );
-    });
-
-    return componentList;
+  seeState = () => {
+    console.log(this.state.movies)
   }
 
   render() {
-    return (
-      <section>
-      <header>
-      {this.state.message ? this.state.message: ""  }
-      </header>
-      {this.renderMovieList()}
-      </section>
-    );
+    const movieComponents = this.state.movies.map( (movie) => {
+      return(
+        <li key={ movie.id }>
+        <Movie
+        id={movie.id}
+        title={movie.title}
+        image_url={movie.image_url}
+        />
+        </li>)
+      });
+      return (
+        <section>
+          <h3>Find Movie</h3>
+          <ul>
+            { movieComponents }
+            </ul>
+        </section>
+      )
+    }
+
   }
-}
 
-RentalLibrary.propTypes = {
-}
-
-export default RentalLibrary;
+  export default RentalLibrary;

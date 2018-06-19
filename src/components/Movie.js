@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import './Movie.css';
+import MovieDetails from './MovieDetails';
 
 class Movie extends Component {
 
-    render() {
-    console.log('Rendering');
+  static propTypes = {
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    image_url: PropTypes.string.isRequired,
+  }
+
+  render() {
     return (
-      <article className="movie-summary">
-      <p> {this.props.url}</p>
-      <h3> {this.props.title}</h3>
-      <p> {this.props.release_date}</p>
-      <p> {this.props.inventory}</p>
-      </article>
+      <section>
+      <MovieDetails
+      image_url={this.props.image_url}
+      title={this.props.title}
+      />
+      </section>
     )
   }
 }
 
-
-Movie.propTypes = {
-  title: PropTypes.string.isRequired,
-  // release_date: PropTypes.datetime.isRequired,
-  inventory: PropTypes.number.isRequired,
-  image_url: PropTypes.string.isRequired,
-  external_id: PropTypes.number.isRequired,
-}
 
 export default Movie;
