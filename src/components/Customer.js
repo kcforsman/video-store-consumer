@@ -11,9 +11,9 @@ class Customer extends Component {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
-    credit: PropTypes.number.isRequired,
+    credit: PropTypes.number,
   }
-  
+
   render() {
     return (
       <section>
