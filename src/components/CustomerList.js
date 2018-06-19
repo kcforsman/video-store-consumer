@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import './CustomerList.css';
@@ -10,14 +9,16 @@ class CustomerList extends Component {
     super();
 
     this.state = {
-      customers: []
+      customers: [],
+      pages: 0
     }
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3000/customers")
+    axios.get("http://localhost:3000/customers?p=1&n=200")
       .then((response) => {
         const customers = this.state.customers;
+        console.log(response.data)
         response.data.forEach((customer) => {
           const newCustomer = {};
           newCustomer.id = customer.id;
