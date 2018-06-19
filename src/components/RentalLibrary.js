@@ -14,6 +14,10 @@ class RentalLibrary extends Component {
     }
   }
 
+  static propTypes = {
+    getRentalSelection: PropTypes.func.isRequired
+  }
+
   componentDidMount = () => {
     axios.get("http://localhost:3000/movies")
     .then((response) => {
@@ -36,21 +40,29 @@ class RentalLibrary extends Component {
     });
   }
 
+  reportMovieSelection = (index) => {
+    const movieSelection = this.state.movies[index];
+
+    this.props.getRentalSelection('movie', movieSelection);
+  }
+
   seeState = () => {
     console.log(this.state.movies)
   }
 
   render() {
-    const movieComponents = this.state.movies.map( (movie) => {
+    const movieComponents = this.state.movies.map( (movie, index) => {
       return(
         <li key={ movie.id }>
         <Movie
+        index={index}
         id={movie.id}
         title={movie.title}
         image_url={movie.image_url}
         release_date={movie.release_date}
         external_id={movie.external_id}
         overview={movie.overview}
+        reportMovie={this.reportMovieSelection}
         />
         </li>)
       });

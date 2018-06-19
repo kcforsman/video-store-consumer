@@ -34,7 +34,7 @@ class App extends Component {
     if (this.state.index === 1) {
       return < MovieSearch />;
     } else if (this.state.index === 2) {
-      return < RentalLibrary />;
+      return < RentalLibrary getRentalSelection={ this.setRentalSelection }/>;
     } else if (this.state.index === 3) {
       return < CustomerList getRentalSelection={ this.setRentalSelection }/>;
     }
