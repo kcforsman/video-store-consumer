@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 
 import Navigation from './components/Navigation';
 import CustomerList from './components/CustomerList';
@@ -40,6 +41,20 @@ class App extends Component {
     }
   }
 
+  createRental = () => {
+    console.log(this.state.movie.title, this.state.customer.id)
+    axios.post(`http://localhost:3000/rentals/${this.state.movie.title}/check-out`,
+      {customer_id: this.state.customer.id})
+    .then((response) => {
+      console.log(response.data)
+      console.log("Successfully saved Rental")
+      // this.setState({ customers })
+    })
+    .catch((error) => {
+      this.setState({ message: error.message})
+    });
+  }
+
   seeState = () => {
     console.log(this.state);
   }
@@ -51,6 +66,7 @@ class App extends Component {
           <Checkout
             movie={ this.state.movie ? this.state.movie.title : ""}
             customer={ this.state.customer ? this.state.customer.name : ""}
+            submitRental={ this.createRental }
           />
           <h1>NorthWest Movies</h1>
           <Navigation setComponent={ this.setComponent }/>
