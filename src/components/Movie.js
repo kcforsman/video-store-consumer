@@ -11,6 +11,8 @@ class Movie extends Component {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,
+    external_id: PropTypes.number.isRequired,
+    release_date: PropTypes.string.isRequired,
   }
 
   render() {
@@ -19,6 +21,8 @@ class Movie extends Component {
       <MovieDetails
       image_url={this.props.image_url}
       title={this.props.title}
+      release_date={this.props.release_date}
+      external_id={this.props.external_id}
       />
       </section>
     )

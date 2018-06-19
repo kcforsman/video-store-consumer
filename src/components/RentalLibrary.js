@@ -23,6 +23,9 @@ class RentalLibrary extends Component {
         newMovie.id = movie.id;
         newMovie.title = movie.title;
         newMovie.image_url = movie.image_url;
+        newMovie.release_date = movie.release_date;
+        newMovie.external_id = movie.external_id;
+        newMovie.overview = movie.overview;
         movies.push(newMovie);
       })
 
@@ -45,15 +48,18 @@ class RentalLibrary extends Component {
         id={movie.id}
         title={movie.title}
         image_url={movie.image_url}
+        release_date={movie.release_date}
+        external_id={movie.external_id}
+        overview={movie.overview}
         />
         </li>)
       });
       return (
         <section>
-          <h3>Find Movie</h3>
-          <ul>
-            { movieComponents }
-            </ul>
+        <h3>Find Movie</h3>
+        <ul>
+        { movieComponents }
+        </ul>
         </section>
       )
     }
