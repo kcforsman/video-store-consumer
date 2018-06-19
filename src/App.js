@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import Navigation from './components/Navigation';
 import CustomerList from './components/CustomerList';
+import RentalLibrary from './components/RentalLibrary';
 
 class App extends Component {
 
@@ -21,11 +21,11 @@ class App extends Component {
 
   renderComponent = () => {
     if (this.state.index === 1) {
-      return <h1><strong>Render:</strong> Search Bar</h1>;
+      return <h1><strong>TO DO:</strong> Search Bar</h1>;
     } else if (this.state.index === 2) {
-      return <h1><strong>Render:</strong> Rental Library</h1>;
+      return < RentalLibrary />;
     } else if (this.state.index === 3) {
-      return < CustomerList/>;
+      return < CustomerList />;
     }
   }
 
