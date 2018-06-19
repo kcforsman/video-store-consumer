@@ -13,7 +13,7 @@ class App extends Component {
     super();
 
     this.state = {
-      index: 0
+      index: 1
     }
   }
 
