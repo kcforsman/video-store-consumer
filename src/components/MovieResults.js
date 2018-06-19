@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 import './MovieResults.css';
 import Movie from './Movie';
 
 class MovieResults extends Component {
-  constructor(props){
-    super(props);
-  }
+
 
   renderMovieResults = () => {
     const resultList = this.props.results.map( (result) => {

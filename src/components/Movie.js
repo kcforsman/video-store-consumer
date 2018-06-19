@@ -30,7 +30,7 @@ class Movie extends Component {
         release_date={this.props.release_date}
         external_id={this.props.external_id}
       />
-      <SelectButton reportSelection={ this.reportMovie } />
+      <SelectButton reportSelection={ this.reportMovie } field="Movie"/>
       </section>
     )
   }

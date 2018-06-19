@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 import './CustomerDetails.css';
 
@@ -8,11 +7,11 @@ class CustomerDetails extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
-    credit: PropTypes.number.isRequired,
+    credit: PropTypes.number,
   }
 
   displayCredit = () => {
-    if (this.props.credit.length == 0) {
+    if (this.props.credit) {
       return <dd><strong>Account Credit:</strong> {this.props.credit}</dd>
     }
 
