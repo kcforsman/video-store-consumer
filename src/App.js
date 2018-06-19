@@ -4,6 +4,8 @@ import './App.css';
 import Navigation from './components/Navigation';
 import CustomerList from './components/CustomerList';
 import RentalLibrary from './components/RentalLibrary';
+import MovieSearch from './components/MovieSearch';
+
 
 class App extends Component {
 
@@ -21,7 +23,7 @@ class App extends Component {
 
   renderComponent = () => {
     if (this.state.index === 1) {
-      return <h1><strong>TO DO:</strong> Search Bar</h1>;
+      return < MovieSearch />;
     } else if (this.state.index === 2) {
       return < RentalLibrary />;
     } else if (this.state.index === 3) {
