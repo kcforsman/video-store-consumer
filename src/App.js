@@ -24,18 +24,24 @@ class App extends Component {
     this.setState({index});
   }
 
+  setRentalSelection = (field, value) => {
+    const newState = {};
+    newState[field] =  value;
+    this.setState(newState);
+  }
+
   renderComponent = () => {
     if (this.state.index === 1) {
       return < MovieSearch />;
     } else if (this.state.index === 2) {
       return < RentalLibrary />;
     } else if (this.state.index === 3) {
-      return < CustomerList />;
+      return < CustomerList getRentalSelection={ this.setRentalSelection }/>;
     }
   }
 
   seeState = () => {
-    console.log(this.state.index);
+    console.log(this.state);
   }
 
   render() {
@@ -50,7 +56,6 @@ class App extends Component {
           <Navigation setComponent={ this.setComponent }/>
         </header>
         { this.renderComponent() }
-        { this.seeState() }
       </main>
     );
   }

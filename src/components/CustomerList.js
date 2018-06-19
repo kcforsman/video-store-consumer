@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 import './CustomerList.css';
 import Customer from './Customer';
@@ -14,11 +15,14 @@ class CustomerList extends Component {
     }
   }
 
+  static propTypes = {
+    getRentalSelection: PropTypes.func.isRequired
+  }
+
   componentDidMount() {
     axios.get("http://localhost:3000/customers?p=1&n=200")
       .then((response) => {
         const customers = this.state.customers;
-        console.log(response.data)
         response.data.forEach((customer) => {
           const newCustomer = {};
           newCustomer.id = customer.id;
@@ -35,18 +39,26 @@ class CustomerList extends Component {
       });
   }
 
+  reportCustomerSelection = (index) => {
+    const customerSelection = this.state.customers[index];
+    
+    this.props.getRentalSelection('customer', customerSelection);
+  }
+
   seeState = () => {
     console.log(this.state.customers)
   }
   render() {
-    const customerComponents = this.state.customers.map( (customer) => {
+    const customerComponents = this.state.customers.map( (customer, index) => {
       return(
-        <li key={ customer.id }>
+        <li key={ index }>
           <Customer
+            index={index}
             id={customer.id}
             name={customer.name}
             phone={customer.phone}
             credit={customer.account_credit}
+            reportCustomer={this.reportCustomerSelection}
           />
         </li>)
     });
@@ -55,6 +67,7 @@ class CustomerList extends Component {
          <h3>Find Customer</h3>
          <ul>
            { customerComponents }
+           { this.seeState() }
          </ul>
        </section>
     )
