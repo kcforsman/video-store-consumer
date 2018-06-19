@@ -6,7 +6,6 @@ import Movie from './Movie';
 
 class MovieResults extends Component {
 
-
   renderMovieResults = () => {
     const resultList = this.props.results.map( (result) => {
       return(
