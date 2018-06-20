@@ -11,6 +11,7 @@ class MovieResults extends Component {
       return(
         <li key={ result.id }>
         <Movie
+        key={result.id}
         id={result.id}
         title={result.title}
         image_url={result.image_url}
