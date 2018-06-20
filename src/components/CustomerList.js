@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-import './CustomerList.css';
 import Customer from './Customer';
 
 class CustomerList extends Component {

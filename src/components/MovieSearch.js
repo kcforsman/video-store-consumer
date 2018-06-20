@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import './MovieSearch.css';
 import SearchBar from './SearchBar'
 import MovieResults from './MovieResults'
 

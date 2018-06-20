@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './MovieResults.css';
 import Movie from './Movie';
 
 class MovieResults extends Component {

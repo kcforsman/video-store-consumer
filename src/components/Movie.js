@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './Movie.css';
 import MovieDetails from './MovieDetails';
 import SelectButton from './SelectButton';
 

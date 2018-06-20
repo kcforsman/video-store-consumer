@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import './RentalLibrary.css';
 import Movie from './Movie';
 
 class RentalLibrary extends Component {

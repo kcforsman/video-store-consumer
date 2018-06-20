@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './Customer.css';
 import CustomerDetails from './CustomerDetails';
 import SelectButton from './SelectButton';
 
