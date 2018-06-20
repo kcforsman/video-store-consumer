@@ -16,8 +16,10 @@ class Checkout extends Component {
 
   submitForm = (event) => {
     event.preventDefault();
-    if (this.props.movie || this.props.customer) {
+    if (this.props.movie && this.props.customer) {
       this.props.submitRental();
+    } else {
+      alert("Must select both Customer and Movie");
     }
   }
 

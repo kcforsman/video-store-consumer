@@ -3,6 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import Customer from './Customer';
+import Message from './Message';
 
 class CustomerList extends Component {
   constructor() {
@@ -31,7 +32,7 @@ class CustomerList extends Component {
           customers.push(newCustomer);
         })
 
-        this.setState({ customers })
+        this.setState({customers})
       })
       .catch((error) => {
         this.setState({ message: error.message})
@@ -42,6 +43,12 @@ class CustomerList extends Component {
     const customerSelection = this.state.customers[index];
 
     this.props.getRentalSelection('customer', customerSelection);
+  }
+
+  renderMessage = () => {
+    if (this.state.message) {
+      return <Message message={ this.state.message } />
+    }
   }
 
   seeState = () => {
@@ -63,10 +70,10 @@ class CustomerList extends Component {
     });
     return (
        <section className="results-container">
+         { this.renderMessage() }
          <h3>Find Customer</h3>
          <ul>
            { customerComponents }
-           { this.seeState() }
          </ul>
        </section>
     )
