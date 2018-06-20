@@ -20,11 +20,11 @@ class CustomerDetails extends Component {
   render() {
 
     return (
-      <dl>
-        <dt><strong>Name:</strong> { this.props.name }</dt>
-        <dd><strong>Phone Number:</strong> {this.props.phone}</dd>
+      <section>
+        <p><strong>Name:</strong> { this.props.name }</p>
+        <p><strong>Phone Number:</strong> {this.props.phone}</p>
         { this.displayCredit() }
-      </dl>
+      </section>
     )
   }
 
