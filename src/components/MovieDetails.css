@@ -1,0 +1,15 @@
+.movie-details-container {
+  display: flex;
+}
+
+.movie-details-image {
+  width: 25%;
+}
+
+.movie-details-image img {
+  width: 100%;
+}
+
+.movie-details-content {
+  margin-left: 10px;
+}

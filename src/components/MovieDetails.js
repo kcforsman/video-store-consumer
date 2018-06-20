@@ -14,11 +14,15 @@ class MovieDetails extends Component {
   render() {
 
     return (
-      <dl>
-      <dt> Title: {this.props.title}</dt>
-      <img src={this.props.image_url} alt={this.props.image_url}/>
-      <dd>  Release date: {this.props.release_date}</dd>
-      </dl>
+      <section className="movie-details-container">
+        <div className="movie-details-image">
+          <img src={this.props.image_url} alt={this.props.image_url}/>
+        </div>
+        <div className="movie-details-content">
+          <p><strong>Title:</strong><br /> {this.props.title}</p>
+          <p><strong>Release Date: </strong><br />{this.props.release_date}</p>
+        </div>
+      </section>
     )
   }
 

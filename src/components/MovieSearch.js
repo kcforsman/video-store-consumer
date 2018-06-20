@@ -36,11 +36,17 @@ class MovieSearch extends Component {
     });
   }
 
+  renderResults = () => {
+    if (this.state.results.length !== 0) {
+      return <MovieResults results = {this.state.results} />;
+    }
+  }
+
   render() {
     return (
       <div>
         <SearchBar searchCallback = {this.searchMovies} />
-        <MovieResults results = {this.state.results} />
+        { this.renderResults()}
       </div>
     )
   }
