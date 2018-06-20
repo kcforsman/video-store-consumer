@@ -49,7 +49,7 @@ header form {
   color: white;
   font-family: 'Rufina', serif;
   font-weight: bold;
-  width: 50%;
+  width: 115px;
   height: 2.5em;
 }
 
@@ -92,4 +92,11 @@ header form {
 .results-container ul li {
   border-bottom: 3px solid #CC3366;
   margin: 0;
+}
+
+.list-item-container {
+  display: grid;
+  align-items: center;
+  grid-template: 1fr / 3fr 1fr;
+  padding: 10px;
 }

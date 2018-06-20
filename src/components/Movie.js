@@ -23,14 +23,14 @@ class Movie extends Component {
 
   render() {
     return (
-      <section>
-      <MovieDetails
-        image_url={this.props.image_url}
-        title={this.props.title}
-        release_date={this.props.release_date}
-        external_id={this.props.external_id}
-      />
-      <SelectButton reportSelection={ this.reportMovie } field="Movie"/>
+      <section className="list-item-container">
+        <MovieDetails
+          image_url={this.props.image_url}
+          title={this.props.title}
+          release_date={this.props.release_date}
+          external_id={this.props.external_id}
+        />
+        <SelectButton reportSelection={ this.reportMovie } field="Movie"/>
       </section>
     )
   }

@@ -23,7 +23,7 @@ class Customer extends Component {
 
   render() {
     return (
-      <section>
+      <section className="list-item-container">
        <CustomerDetails
          name={this.props.name}
          phone={this.props.phone}
