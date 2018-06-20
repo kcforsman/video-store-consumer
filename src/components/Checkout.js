@@ -23,16 +23,17 @@ class Checkout extends Component {
 
   render() {
     return (
-       <section>
-         <h3>~Rental Selection~</h3>
-         <form onSubmit={ this.submitForm }>
-         <label htmlFor="movie">Movie: </label>
-         <p name="movie">{ this.renderSelection("movie") }</p>
-         <label htmlFor="customer">Customer: </label>
-         <p name="customer">{ this.renderSelection("customer") }</p>
-         <input type="submit" value="Checkout Rental" />
+         <form onSubmit={ this.submitForm } className="checkout-container">
+           <div className="selection-container">
+             <label className="selection-label">Movie: </label>
+             <p className="selection-value">{ this.renderSelection("movie") }</p>
+           </div>
+           <div className="selection-container">
+             <label className="selection-label">Customer: </label>
+             <p className="selection-value">{ this.renderSelection("customer") }</p>
+           </div>
+           <input type="submit" value="Checkout Rental" className="button"/>
          </form>
-       </section>
     )
   }
 

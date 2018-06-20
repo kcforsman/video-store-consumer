@@ -1,0 +1,26 @@
+.selection-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 15px 0;
+  padding: 0;
+}
+
+.selection-label {
+  margin-right: 5px;
+}
+
+.selection-value {
+  width: 150px;
+  background-color: white;
+  color: #CC3366;
+  border-bottom: 2.5px solid #FF6699;
+  box-shadow: 2px 2px 3px #CC3366;
+  height: 1.25em;
+  margin: 0 2px;
+  padding: 0;
+  text-align: center;
+}
+
+.button {
+  margin-right: 5px;
+}

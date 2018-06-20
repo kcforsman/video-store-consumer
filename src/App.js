@@ -63,13 +63,15 @@ class App extends Component {
     return (
       <main>
         <header>
+          <section className="heading-container">
+            <h1 className="app-heading">NorthWest Movies</h1>
+            <Navigation setComponent={ this.setComponent }/>
+          </section>
           <Checkout
             movie={ this.state.movie ? this.state.movie.title : ""}
             customer={ this.state.customer ? this.state.customer.name : ""}
             submitRental={ this.createRental }
           />
-          <h1>NorthWest Movies</h1>
-          <Navigation setComponent={ this.setComponent }/>
         </header>
         { this.renderComponent() }
       </main>

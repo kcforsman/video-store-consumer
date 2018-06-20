@@ -16,7 +16,7 @@ class Navigation extends Component {
   render() {
     return (
       <nav>
-        <ul>
+        <ul className="link-container">
           <li onClick={ this.selectComponent } value="1">Movie Search</li>
           <li onClick={ this.selectComponent } value="2">Rental Library</li>
           <li onClick={ this.selectComponent } value="3">Customer List</li>
