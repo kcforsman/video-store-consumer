@@ -48,7 +48,7 @@ class SearchBar extends Component {
           value={this.state.searchTerm}
           onChange={this.onFieldChange}
           type="text"
-          placeholder="Enter Search Terms..."
+          placeholder="Enter Title..."
         />
         <input type="submit" value="Search Movie Database" className="button"/>
       </form>
