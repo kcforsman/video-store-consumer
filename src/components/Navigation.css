@@ -1,6 +1,7 @@
 nav{
   padding: 0;
   margin: 0;
+  margin-right: 30px;
 }
 .link-container {
   display: flex;
@@ -12,7 +13,7 @@ nav{
 .link-container li {
   list-style-type: none;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1em;
 }
 
 .link-container li:hover {
