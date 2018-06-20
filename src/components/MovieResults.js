@@ -26,10 +26,10 @@ class MovieResults extends Component {
     render() {
 
       return (
-        <section>
-        <ul>
-        { this.renderMovieResults() }
-        </ul>
+        <section className="results-container">
+          <ul>
+            { this.renderMovieResults() }
+          </ul>
         </section>
       )
     }

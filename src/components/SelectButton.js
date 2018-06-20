@@ -17,7 +17,7 @@ class SelectButton extends Component {
   render() {
 
     return (
-       <button onClick={this.reportSelection}>Select { this.props.field }</button>
+       <button onClick={this.reportSelection} className="button">Select { this.props.field }</button>
     )
   }
 

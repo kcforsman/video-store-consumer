@@ -67,11 +67,11 @@ class RentalLibrary extends Component {
         </li>)
       });
       return (
-        <section>
-        <h3>Find Movie</h3>
-        <ul>
-        { movieComponents }
-        </ul>
+        <section className="results-container">
+          <h3>Find Movie</h3>
+          <ul>
+            { movieComponents }
+          </ul>
         </section>
       )
     }

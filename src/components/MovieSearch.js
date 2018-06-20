@@ -39,8 +39,8 @@ class MovieSearch extends Component {
   render() {
     return (
       <div>
-      <SearchBar searchCallback = {this.searchMovies} />
-      <MovieResults results = {this.state.results} />
+        <SearchBar searchCallback = {this.searchMovies} />
+        <MovieResults results = {this.state.results} />
       </div>
     )
   }

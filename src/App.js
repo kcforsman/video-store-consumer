@@ -73,7 +73,9 @@ class App extends Component {
             submitRental={ this.createRental }
           />
         </header>
-        { this.renderComponent() }
+        <div className="main-container">
+          { this.renderComponent() }
+        </div>
       </main>
     );
   }

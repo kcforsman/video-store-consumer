@@ -41,7 +41,7 @@ class CustomerList extends Component {
 
   reportCustomerSelection = (index) => {
     const customerSelection = this.state.customers[index];
-    
+
     this.props.getRentalSelection('customer', customerSelection);
   }
 
@@ -63,7 +63,7 @@ class CustomerList extends Component {
         </li>)
     });
     return (
-       <section>
+       <section className="results-container">
          <h3>Find Customer</h3>
          <ul>
            { customerComponents }
