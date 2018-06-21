@@ -40,7 +40,8 @@ class MovieSearch extends Component {
 
   componentWillUnmount() {
     this.setState({
-      results: []
+      results: [],
+      message: undefined
     })
   }
 

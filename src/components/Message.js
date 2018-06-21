@@ -10,7 +10,7 @@ class Message extends Component {
 
   render() {
     return (
-      <div>
+      <div className="alert-message">
         <p>{ this.props.message }</p>
       </div>
     )

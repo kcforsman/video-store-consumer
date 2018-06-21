@@ -56,6 +56,12 @@ class RentalLibrary extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.setState({
+      message: undefined
+    })
+  }
+
   render() {
     const movieComponents = this.state.movies.map( (movie, index) => {
       return(

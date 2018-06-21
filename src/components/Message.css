@@ -1,0 +1,6 @@
+.alert-message {
+  position: absolute;
+  width: 10%;
+  font-size: .6em;
+  font-weight: bold;
+}

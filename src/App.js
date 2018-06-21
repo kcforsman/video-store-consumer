@@ -50,16 +50,26 @@ class App extends Component {
       console.log(response.data)
       console.log(this.state.customer.id)
       console.log(this.state.movie.id)
-      this.setState({ messsage: "Successfully saved Rental"})
+      this.setState({
+        message: "Successfully saved Rental",
+        customer: null,
+        movie: null
+      })
     })
     .catch((error) => {
-      this.setState({ message: error.message})
+      this.setState({ message: error.message })
     });
   }
 
   renderMessage = () => {
     if (this.state.message) {
-      return <Message message={ this.state.message } />
+      return <Message message={ this.state.message } />;
+    }
+  }
+
+  removeMessage = () => {
+    if (this.state.message) {
+      this.setState({message: undefined})
     }
   }
 
@@ -69,7 +79,7 @@ class App extends Component {
 
   render() {
     return (
-      <main>
+      <main onClick={this.removeMessage}>
         <header>
           <section className="heading-container">
             <h1 className="app-heading">NorthWest Movies</h1>

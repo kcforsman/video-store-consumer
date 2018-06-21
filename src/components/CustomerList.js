@@ -51,9 +51,16 @@ class CustomerList extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.setState({
+      message: undefined
+    })
+  }
+
   seeState = () => {
     console.log(this.state.customers)
   }
+  
   render() {
     const customerComponents = this.state.customers.map( (customer, index) => {
       return(
