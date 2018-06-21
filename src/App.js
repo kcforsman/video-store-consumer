@@ -15,30 +15,15 @@ class App extends Component {
     super();
 
     this.state = {
-      index: 1,
       movie: null,
       customer: null
     }
-  }
-
-  setComponent = (index) => {
-    this.setState({index});
   }
 
   setRentalSelection = (field, value) => {
     const newState = {};
     newState[field] =  value;
     this.setState(newState);
-  }
-
-  renderComponent = () => {
-    if (this.state.index === 1) {
-      return < MovieSearch />;
-    } else if (this.state.index === 2) {
-      return < RentalLibrary getRentalSelection={ this.setRentalSelection }/>;
-    } else if (this.state.index === 3) {
-      return < CustomerList getRentalSelection={ this.setRentalSelection }/>;
-    }
   }
 
   createRental = () => {
@@ -109,8 +94,12 @@ class App extends Component {
           <div className="main-container">
             <Route exact path="/" component={MovieSearch} />
             <Route path="/search" component={MovieSearch} />
-            <Route path="/library" component={RentalLibrary} />
-            <Route path="/customers" component={CustomerList} />
+            <Route path="/library"
+              render={ (props) => <RentalLibrary {...props} getRentalSelection={ this.setRentalSelection } />}
+            />
+            <Route path="/customers"
+              render={ (props) => <CustomerList {...props} getRentalSelection={ this.setRentalSelection } />}
+            />
           </div>
         </main>
       </Router>
