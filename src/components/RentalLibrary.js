@@ -74,6 +74,7 @@ class RentalLibrary extends Component {
         release_date={movie.release_date}
         external_id={movie.external_id}
         overview={movie.overview}
+        parent="RentalLibrary"
         reportMovie={this.reportMovieSelection}
         />
         </li>)
