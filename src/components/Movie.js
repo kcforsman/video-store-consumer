@@ -23,11 +23,6 @@ class Movie extends Component {
     this.props.reportMovie(this.props.index);
   }
 
-  onSubmit = (event) => {
-    event.preventDefault();
-    this.props.addMovieCallback(this.state);
-  }
-
   addMovie = () => {
     const movieData = {
       title: this.props.title,
