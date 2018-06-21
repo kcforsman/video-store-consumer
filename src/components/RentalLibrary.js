@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import Movie from './Movie';
+import Message from './Message';
 
 class RentalLibrary extends Component {
   constructor() {
@@ -32,7 +33,7 @@ class RentalLibrary extends Component {
         movies.push(newMovie);
       })
 
-      this.setState({ movies })
+      this.setState({movies})
     })
     .catch((error) => {
       this.setState({ message: error.message})
@@ -46,7 +47,19 @@ class RentalLibrary extends Component {
   }
 
   seeState = () => {
-    console.log(this.state.movies)
+    console.log(this.state.movies.length)
+  }
+
+  renderMessage = () => {
+    if (this.state.message) {
+      return <Message message={ this.state.message } />
+    }
+  }
+
+  componentWillUnmount() {
+    this.setState({
+      message: undefined
+    })
   }
 
   render() {
@@ -67,6 +80,7 @@ class RentalLibrary extends Component {
       });
       return (
         <section className="results-container">
+          { this.renderMessage() }
           <h3>Find Movie</h3>
           <ul>
             { movieComponents }

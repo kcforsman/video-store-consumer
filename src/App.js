@@ -7,7 +7,7 @@ import CustomerList from './components/CustomerList';
 import RentalLibrary from './components/RentalLibrary';
 import MovieSearch from './components/MovieSearch';
 import Checkout from './components/Checkout';
-
+import Message from './components/Message';
 
 class App extends Component {
 
@@ -42,17 +42,35 @@ class App extends Component {
   }
 
   createRental = () => {
-    console.log(this.state.movie.title, this.state.customer.id)
-    axios.post(`http://localhost:3000/rentals/${this.state.movie.title}/check-out`,
-      {customer_id: this.state.customer.id})
+    axios.post(
+      `http://localhost:3000/rentals/${this.state.movie.title}/check-out`,
+      {customer_id: this.state.customer.id}
+    )
     .then((response) => {
       console.log(response.data)
-      console.log("Successfully saved Rental")
-      // this.setState({ customers })
+      console.log(this.state.customer.id)
+      console.log(this.state.movie.id)
+      this.setState({
+        message: "Successfully saved Rental",
+        customer: null,
+        movie: null
+      })
     })
     .catch((error) => {
-      this.setState({ message: error.message})
+      this.setState({ message: error.message })
     });
+  }
+
+  renderMessage = () => {
+    if (this.state.message) {
+      return <Message message={ this.state.message } />;
+    }
+  }
+
+  removeMessage = () => {
+    if (this.state.message) {
+      this.setState({message: undefined})
+    }
   }
 
   seeState = () => {
