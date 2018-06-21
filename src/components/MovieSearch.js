@@ -17,7 +17,7 @@ class MovieSearch extends Component {
   searchMovies = (searchTerm) => {
     axios.get(`http://localhost:3000/movies?query=${searchTerm}`)
     .then((response) => {
-      const results = this.state.results;
+      const results = [];
       response.data.forEach((result) => {
         const searchResult = {};
         searchResult.id = result.id;
