@@ -37,23 +37,16 @@ class Movie extends Component {
 
     console.log(movieData);
 
-    axios.get(`http://localhost:3000/movies/${this.props.title}`)
+
+    axios.post(`http://localhost:3000/movies/`, movieData)
     .then((response) => {
-      console.log(`${this.props.title} did not add; already included in rental library.`);
+      console.log(`Added ${response.data.title}`);
+      console.log(response);
     })
     .catch((error) => {
-      console.log(error.response.status);
-        axios.post(`http://localhost:3000/movies/`, movieData)
-        .then((response) => {
-          console.log(`Added ${response.data.title}`);
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(`${this.props.title} did not add to rental library`);
-          console.log(error.message);
-        });
-    });
-
+      console.log(`${this.props.title} did not add to rental library`);
+      console.log(error.message);
+    });    
   }
 
   renderButton = () => {
@@ -69,13 +62,13 @@ class Movie extends Component {
   render() {
     return (
       <section className="list-item-container">
-        <MovieDetails
-          image_url={this.props.image_url}
-          title={this.props.title}
-          release_date={this.props.release_date}
-          external_id={this.props.external_id}
-        />
-        { this.renderButton() }
+      <MovieDetails
+      image_url={this.props.image_url}
+      title={this.props.title}
+      release_date={this.props.release_date}
+      external_id={this.props.external_id}
+      />
+      { this.renderButton() }
       </section>
     )
   }
