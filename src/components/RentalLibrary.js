@@ -30,6 +30,7 @@ class RentalLibrary extends Component {
         newMovie.release_date = movie.release_date;
         newMovie.external_id = movie.external_id;
         newMovie.overview = movie.overview;
+        newMovie.available_inventory = movie.available_inventory;
         movies.push(newMovie);
       })
 
@@ -74,6 +75,7 @@ class RentalLibrary extends Component {
         release_date={movie.release_date}
         external_id={movie.external_id}
         overview={movie.overview}
+        available_inventory={movie.available_inventory}
         parent="RentalLibrary"
         reportMovie={this.reportMovieSelection}
         />
