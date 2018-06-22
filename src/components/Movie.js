@@ -9,15 +9,14 @@ class Movie extends Component {
 
   static propTypes = {
     index: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
+    id: PropTypes.number,
     title: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,
     external_id: PropTypes.number.isRequired,
-    release_date: PropTypes.string.isRequired,
+    release_date: PropTypes.string,
     overview: PropTypes.string,
     available_inventory: PropTypes.number,
     reportMovie: PropTypes.func.isRequired,
-    addMovie: PropTypes.func.isRequired,
     parent: PropTypes.string
   }
 
@@ -46,7 +45,7 @@ class Movie extends Component {
     .catch((error) => {
       console.log(`${this.props.title} did not add to rental library`);
       console.log(error.message);
-    });    
+    });
   }
 
   renderButton = () => {

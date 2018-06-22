@@ -6,18 +6,18 @@ import Movie from './Movie';
 class MovieResults extends Component {
 
   renderMovieResults = () => {
-    const resultList = this.props.results.map( (result) => {
+    const resultList = this.props.results.map( (result, index) => {
       return(
-        <li key={ result.id }>
-        <Movie
-        key={result.id}
-        id={result.id}
-        title={result.title}
-        image_url={result.image_url}
-        release_date={result.release_date}
-        external_id={result.external_id}
-        overview={result.overview}
-        />
+        <li key={ index }>
+          <Movie
+            index={index}
+            title={result.title}
+            image_url={result.image_url}
+            release_date={result.release_date}
+            external_id={result.external_id}
+            overview={result.overview}
+            reportMovie={() => {}}
+          />
         </li>)
       });
       return resultList;

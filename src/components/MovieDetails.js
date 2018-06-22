@@ -8,7 +8,7 @@ class MovieDetails extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,
-    release_date: PropTypes.string.isRequired,
+    release_date: PropTypes.string,
   }
 
   render() {
