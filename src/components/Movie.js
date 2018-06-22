@@ -15,6 +15,7 @@ class Movie extends Component {
     external_id: PropTypes.number.isRequired,
     release_date: PropTypes.string.isRequired,
     overview: PropTypes.string,
+    available_inventory: PropTypes.number,
     reportMovie: PropTypes.func.isRequired,
     addMovie: PropTypes.func.isRequired,
     parent: PropTypes.string
@@ -47,8 +48,10 @@ class Movie extends Component {
   }
 
   renderButton = () => {
-    if (this.props.parent === "RentalLibrary") {
+    if (this.props.parent === "RentalLibrary" && this.props.available_inventory) {
       return <SelectButton reportSelection={ this.reportMovie } field="Select Movie"/>;
+    } else if (this.props.parent === "RentalLibrary") {
+      return <SelectButton reportSelection={ () => {} } field="Movie Unavailble"/>
     } else {
       return <SelectButton reportSelection={ this.addMovie } field="Add to Library"/>;
     }
