@@ -52,7 +52,7 @@ class Movie extends Component {
     if (this.props.parent === "RentalLibrary" && this.props.available_inventory) {
       return <SelectButton reportSelection={ this.reportMovie } field="Select Movie"/>;
     } else if (this.props.parent === "RentalLibrary") {
-      return <SelectButton reportSelection={ () => {} } field="Movie Unavailble"/>
+      return <SelectButton reportSelection={ () => {} } field="Movie Unavailable"/>
     } else {
       return <SelectButton reportSelection={ this.addMovie } field="Add to Library"/>;
     }
