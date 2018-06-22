@@ -34,17 +34,26 @@ class Movie extends Component {
       overview: this.props.overview,
       inventory: 1
     }
+
     console.log(movieData);
 
-    axios.post(`http://localhost:3000/movies/`, movieData)
+    axios.get(`http://localhost:3000/movies/${this.props.title}`)
     .then((response) => {
-      console.log(`Added ${response.data.title}`);
-      console.log(response);
+      console.log(`${this.props.title} did not add; already included in rental library.`);
     })
     .catch((error) => {
-      console.log(`${this.props.title} did not add to rental library`);
-      console.log(error.message);
+      console.log(error.response.status);
+        axios.post(`http://localhost:3000/movies/`, movieData)
+        .then((response) => {
+          console.log(`Added ${response.data.title}`);
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(`${this.props.title} did not add to rental library`);
+          console.log(error.message);
+        });
     });
+
   }
 
   renderButton = () => {
