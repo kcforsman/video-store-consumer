@@ -14,6 +14,7 @@ class Movie extends Component {
     image_url: PropTypes.string.isRequired,
     external_id: PropTypes.number.isRequired,
     release_date: PropTypes.string.isRequired,
+    overview: PropTypes.string,
     reportMovie: PropTypes.func.isRequired,
     addMovie: PropTypes.func.isRequired,
     parent: PropTypes.string
@@ -62,8 +63,8 @@ class Movie extends Component {
           release_date={this.props.release_date}
           external_id={this.props.external_id}
         />
-          { this.renderButton() }
-        </section>
+        { this.renderButton() }
+      </section>
     )
   }
 }
