@@ -28,7 +28,7 @@ class Customer extends Component {
          phone={this.props.phone}
          credit={this.props.account_credit}
         />
-        <SelectButton reportSelection={ this.reportCustomer } field="Customer"/>
+        <SelectButton reportSelection={ this.reportCustomer } field="Select Customer"/>
       </section>
     )
   }
